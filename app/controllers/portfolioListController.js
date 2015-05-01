@@ -15,6 +15,38 @@
     });
 
 
+
+// API Key: Ao2AL3xLQ9GAam03ar2oyz
+//{"url":"https://www.filepicker.io/api/file/bo79ExERKmz6gv8kOPNU",
+//"filename":"Pierre_LeGrand.jpg",
+//"mimetype":"image/jpeg",
+//"size":168177,
+//"isWriteable":true}
+
+var imageUpped;
+
+$scope.addImage = function( new_image ){
+
+filepicker.setKey("Ao2AL3xLQ9GAam03ar2oyz");
+
+filepicker.pick(
+  {
+    mimetypes: ['image/*', 'text/plain'],
+    container: 'window',
+    services:['COMPUTER'],
+  },
+  function(Blob){
+    imageUpped = Blob.url;
+    console.log(imageUpped);
+  },
+  function(FPError){
+    console.log(FPError.toString());
+  }
+);
+}
+
+
+
     $scope.addPortfolio = function( new_portfolio ) {
 
       var pushRef = new Firebase(FIREBASE_URL + '/portfolios');
@@ -22,10 +54,9 @@
       pushRef.push({
         name: new_portfolio.name,
         creationDate: Firebase.ServerValue.TIMESTAMP,
-        date: new_portfolio.date,
         title: new_portfolio.title,
         description: new_portfolio.description,
-        image: new_portfolio.image
+        imageurl: imageUpped 
       });
 
     };

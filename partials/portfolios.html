@@ -29,15 +29,8 @@
         <input name="name" type="text" placeholder="unique name" ng-required="true" ng-model="adding_portfolio.name" />
         <p class="error" ng-show="add_portfolio.name.$invalid && add_portfolio.name.$touched">Must enter a name.</p>
 
-        <input name="image" type="text" placeholder="unique image" ng-required="true" ng-model="adding_portfolio.image" />
-        <p class="error" ng-show="add_portfolio.image.$invalid && add_portfolio.image.$touched">Must enter a image.</p>
+<input type="file" required="true" id="file-upload" ng-click="addImage()" />
 
-
-
-
-
-        <input type="text" placeholder="yyyy-mm-dd" ng-required="true" ng-model="adding_portfolio.date" />
-        <p class="error" ng-show="add_portfolio.date.$invalid && add_portfolio.date.$touched">Must enter a date.</p>
 
         <textarea name="description" placeholder="description" ng-required="true" ng-model="adding_portfolio.description"></textarea>
         <p class="error" ng-show="add_portfolio.description.$invalid && add_portfolio.description.$touched">Must enter a description.</p>
