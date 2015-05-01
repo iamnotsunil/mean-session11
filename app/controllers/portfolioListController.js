@@ -14,6 +14,24 @@
       console.log("The read operation failed: " + errorObject.code);
     });
 
+
+    $scope.addPortfolio = function( new_portfolio ) {
+
+      var pushRef = new Firebase(FIREBASE_URL + '/portfolios');
+
+      pushRef.push({
+        name: new_portfolio.name,
+        creationDate: Firebase.ServerValue.TIMESTAMP,
+        date: new_portfolio.date,
+        title: new_portfolio.title,
+        description: new_portfolio.description,
+        image: new_portfolio.image
+      });
+
+    };
+
+
+
     // postRef.set({
     //   'vessel1309': {
     //     name: 'vessel1309', 
